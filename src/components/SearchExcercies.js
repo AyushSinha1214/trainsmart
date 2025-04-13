@@ -7,6 +7,7 @@ const SearchExcercies = () => {
 
     const handleSearch=async () =>{
         if(search){
+            // const ExcercisesData = await fetchData();
             
         }
     }
