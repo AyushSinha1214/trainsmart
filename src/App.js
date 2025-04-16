@@ -7,6 +7,14 @@ import ExcerciseDetail from './pages/ExcerciseDetail';
 import Home from './pages/Home';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
+import { BrowserRouter } from 'react-router-dom';
+
+<BrowserRouter
+  future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
+>
+  {/* your routes here */}
+</BrowserRouter>
+
 
 const App = () => {
   return (
