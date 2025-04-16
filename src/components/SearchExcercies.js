@@ -9,7 +9,10 @@ const SearchExcercies = () => {
 
     const handleSearch=async () =>{
         if(search){
-            const ExcercisesData = await fetchData();
+            const ExcercisesData = await fetchData
+            (
+                'https://exercisedb.p.rapidapi.com/status'
+            );
             
         }
     }
