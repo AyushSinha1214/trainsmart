@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react'
 
 import { Box, Button, Stack, TextField, Typography } from '@mui/material'
 
+import { ExcercisesOptions,fetchData } from '../utils/fetchData';
+
 const SearchExcercies = () => {
     const[search, setSearch] = useState('')
 
     const handleSearch=async () =>{
         if(search){
-            // const ExcercisesData = await fetchData();
+            const ExcercisesData = await fetchData();
             
         }
     }
