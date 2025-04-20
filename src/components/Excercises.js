@@ -1,8 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import { Box, Stack, Typography, Pagination, formControlClasses } from '@mui/material';
 
-const Excercises = () => {
+import { exerciseOptions, fetchData } from '../utils/fetchData';
+
+
+const Excercises = ({excercises, setExercises, bodyPart}) => {
   return (
-    <div>Excercises</div>
+    <Box id="exercises"
+      sx={{ mt: { lg: '110px'}}}
+      mt = '50px'
+      p = '20px'
+    >
+      <Typography>
+        showing result
+      </Typography>
+    </Box>
   )
 }
 
