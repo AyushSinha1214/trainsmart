@@ -11,9 +11,13 @@ const Excercises = ({excercises, setExercises, bodyPart}) => {
       mt = '50px'
       p = '20px'
     >
-      <Typography>
+      <Typography variant='h3' mb='46px '>
         showing result
       </Typography>
+      <Stack direction="row " sx={{ gap:{ lg:'110px', xs: '50px'}}}
+      flexWrap='wrap' justifyContent='center'>
+        {}
+      </Stack>
     </Box>
   )
 }
