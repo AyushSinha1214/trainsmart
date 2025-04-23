@@ -1,5 +1,5 @@
 // connection with rapid api 
-export const ExcercisesOptions = {
+export const exerciseOptions = {
 	method: 'GET',
 	headers: {
 	  'x-rapidapi-key': process.env.REACT_APP_RAPID_API_KEY,
@@ -10,7 +10,7 @@ export const ExcercisesOptions = {
 export const fetchData = async (url, options) => {
     const response = await fetch(url, options)
     const data = await response.json();
-	console.log("API Key:", process.env.REACT_APP_RAPID_API_KEY);
+	// console.log("API Key:", process.env.REACT_APP_RAPID_API_KEY);
 	
     return data;
 }

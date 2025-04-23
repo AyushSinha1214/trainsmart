@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Box, Button, Stack, TextField, Typography } from '@mui/material'
-import { ExcercisesOptions, fetchData } from '../utils/fetchData';
+import { exerciseOptions, fetchData } from '../utils/fetchData';
 import { HorizontalRule } from '@mui/icons-material';
 import HorizontalScrollbar from './HorizontalScrollbar';
 
-const SearchExcercies = ({setExercises,bodyPart,setBodyPart}) => {
+const SearchExercises = ({setExercises,bodyPart,setBodyPart}) => {
     const [search, setSearch] = useState('')
     const [bodyParts, setBodyParts] = useState([])
 
@@ -19,24 +19,22 @@ const SearchExcercies = ({setExercises,bodyPart,setBodyPart}) => {
 
     const handleSearch = async () => {
         if (search) {
-            const excercisesData = await fetchData
-                (
-                    'https://exercisedb.p.rapidapi.com/exercises', ExcercisesOptions
-                )
-                console.log("Fetched Exercises:", excercisesData); // 👈 Add this
-                console.log("Search Term:", search); // 👈 Add this
-        
-            const searchedExercises = excercisesData.filter(
-                (exercise) => exercise.name.toLowerCase().includes(search)
-                    || exercise.target.toLowerCase().includes(search)
-                    || exercise.equipment.toLowerCase().includes(search)
-                    || exercise.bodyPart.toLowerCase().includes(search)
-            );
-
-            setSearch('');
-            setExercises(searchedExercises);
+          const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
+    
+          const searchedExercises = exercisesData.filter(
+            (item) => item.name.toLowerCase().includes(search)
+                   || item.target.toLowerCase().includes(search)
+                   || item.equipment.toLowerCase().includes(search)
+                   || item.bodyPart.toLowerCase().includes(search),
+          );
+    
+          window.scrollTo({ top: 1800, left: 100, behavior: 'smooth' });
+    
+          setSearch('');
+          setExercises(searchedExercises);
         }
-    }
+      };
+    
 
     return (
         <Stack alignItems="center" mt='37px'
@@ -77,10 +75,10 @@ const SearchExcercies = ({setExercises,bodyPart,setBodyPart}) => {
             </Box>
             <Box sx={{ position:'relative', width:'100%', p: '20px'}}>
                     <HorizontalScrollbar data={bodyParts}
-                     bodyPart={bodyPart} setBodyParts={setBodyPart}/>
+                     bodyPart={bodyPart} setBodyPart={setBodyPart}/>
             </Box>
         </Stack>
     )
 }
 
-export default SearchExcercies
+export default SearchExercises

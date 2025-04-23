@@ -1,6 +1,8 @@
 import React from 'react';
 import { Box, Stack, Typography } from '@mui/material';
-import { exerciseOptions, fetchData } from '../utils/fetchData';
+// import { exerciseOptions, fetchData } from '../utils/fetchData';
+import Excercises from 'src/components/Excercises'; // Correct relative path
+
 
 
 
