@@ -1,7 +1,7 @@
-import { Box, Typography} from '@mui/material'
-import React, {use, useContext} from 'react'
+import { Box, Typography } from '@mui/material'
+import React, { useContext } from 'react'
 import BodyPart from './BodyPart'
-import { ScrollMenu, VisibilityContext} from 'react-horizontal-scrolling-menu';
+import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
 
 import RightArrowIcon from '../assets/icons/right-arrow.png';
 import LeftArrowIcon from '../assets/icons/left-arrow.png';
@@ -23,21 +23,26 @@ const RightArrow = () => {
         </Typography>
     );
 };
- 
+
 const HorizontalScrollbar = ({ data, bodyPart, setBodyPart }) => {
     return (
         <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
-            {data.map((item) =>
+            {data.map((item) => (
                 <Box
-                    key={item.id || item}
-                    itemId={item.id || item}
-                    title={item.id || item}
+                    key={item.itemID || item}
+                    data-itemid={item.itemID || item} // ✅ fixed
+                    title={item.itemID || item}
                     m="0 40px"
                 >
-                    <BodyPart item = {item} bodyPart = {bodyPart}
-                    setBodyPart ={setBodyPart}/>
-                </Box>)}
+                    <BodyPart
+                        item={item}
+                        bodyPart={bodyPart}
+                        setBodyPart={setBodyPart}
+                    />
+                </Box>
+            ))}
         </ScrollMenu>
+
     )
 }
 
